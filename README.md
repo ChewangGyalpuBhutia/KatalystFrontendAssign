@@ -1,69 +1,41 @@
-# React + TypeScript + Vite
+# My React App (Google Calendar MCP Frontend)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern, responsive React (Vite + TypeScript) frontend for visualizing Google Calendar meetings using a backend powered by Composio's Model Context Protocol (MCP).
 
-Currently, two official plugins are available:
+## Features
+- Beautiful, Streamlit-inspired UI
+- Login screen (mock auth)
+- Fetch and display upcoming and past meetings
+- AI-powered meeting summaries (Gemini API)
+- Responsive and mobile-friendly
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setup
 
-## Expanding the ESLint configuration
+1. **Install dependencies:**
+  ```sh
+  pnpm install
+  ```
+2. **Set up environment variables:**
+  - Copy `.env.example` to `.env` and add your Gemini API key as `VITE_GEMINI_API_KEY`.
+  - Set your backend API URL if needed.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+3. **Run locally:**
+  ```sh
+  pnpm dev
+  ```
+  The app will run on `http://localhost:5173` by default.
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+4. **Deploy to Vercel:**
+  - Push your code to GitHub.
+  - Import the project in [Vercel](https://vercel.com/).
+  - Set environment variables in the Vercel dashboard.
+  - Deploy!
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Notes
+- Make sure your backend is deployed and accessible from the frontend.
+- Update API URLs in your code if deploying both frontend and backend to Vercel.
+- See `src/components/Meetings.tsx` for UI and API integration details.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Made with ❤️ for the Katalyst AI assignment.**
